@@ -6,12 +6,17 @@
   "author": "cat12079801 <cat12079801@gmail.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "lint": "eslint src/**/*.ts"
+  },
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^13.7.0",
     "@typescript-eslint/eslint-plugin": "^2.19.2",
     "@typescript-eslint/parser": "^2.19.2",
     "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
     "typescript": "^3.7.5"
   }
 }
