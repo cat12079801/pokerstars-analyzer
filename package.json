@@ -9,7 +9,8 @@
   "scripts": {
     "lint": "eslint {src,test}/**/*.ts",
     "tsc": "tsc",
-    "test": "mocha dist/test/**/*.test.js"
+    "test": "mocha dist/test/**/*.test.js",
+    "coverage": "istanbul cover _mocha ./dist/test/**/*.test.js && remap-istanbul -i ./coverage/coverage.json -o ./coverage/ts-report -t html"
   },
   "dependencies": {},
   "devDependencies": {
