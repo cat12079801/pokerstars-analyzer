@@ -1,0 +1,3 @@
+# PokerStars Analyzer
+
+がんばるぞい
