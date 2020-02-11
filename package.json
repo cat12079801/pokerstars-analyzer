@@ -6,13 +6,12 @@
   "author": "cat12079801 <cat12079801@gmail.com>",
   "license": "MIT",
   "private": false,
-  "dependencies": {
-    "@types/node": "^13.7.0",
-    "typescript": "^3.7.5"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/node": "^13.7.0",
     "@typescript-eslint/eslint-plugin": "^2.19.2",
     "@typescript-eslint/parser": "^2.19.2",
-    "eslint": "^6.8.0"
+    "eslint": "^6.8.0",
+    "typescript": "^3.7.5"
   }
 }
