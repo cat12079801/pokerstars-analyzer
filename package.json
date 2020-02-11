@@ -7,7 +7,9 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "lint": "eslint {src,test}/**/*.ts"
+    "lint": "eslint {src,test}/**/*.ts",
+    "tsc": "tsc",
+    "test": "mocha dist/test/**/*.test.js"
   },
   "dependencies": {},
   "devDependencies": {
