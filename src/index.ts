@@ -1,5 +1,14 @@
-function hello(name: string): string {
-  return `Hello, ${name}!`;
+class PokerStarsAnalyzer {
+  readonly logFilePath: string;
+
+  constructor(logFilePath: string) {
+    this.logFilePath = logFilePath;
+  }
+
+  get getLogFilePath(): string {
+    return this.logFilePath;
+  }
 }
 
-console.log(hello("World"));
+const a: PokerStarsAnalyzer = new PokerStarsAnalyzer('abcde');
+console.log(a.getLogFilePath); // eslint-disable-line
