@@ -1,0 +1,13 @@
+{
+  "name": "pokerstars-analyzer",
+  "version": "0.1.0",
+  "description": "Analyze PokerStars logs",
+  "main": "index.js",
+  "author": "cat12079801 <cat12079801@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@types/node": "^13.7.0",
+    "typescript": "^3.7.5"
+  }
+}
