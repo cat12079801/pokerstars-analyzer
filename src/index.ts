@@ -1,4 +1,4 @@
-class PokerStarsAnalyzer {
+export default class PokerStarsAnalyzer {
   readonly logFilePath: string;
 
   constructor(logFilePath: string) {
@@ -9,6 +9,3 @@ class PokerStarsAnalyzer {
     return this.logFilePath;
   }
 }
-
-const a: PokerStarsAnalyzer = new PokerStarsAnalyzer('abcde');
-console.log(a.getLogFilePath); // eslint-disable-line

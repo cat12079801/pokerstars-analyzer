@@ -19,6 +19,24 @@
   "plugins": [
     "@typescript-eslint"
   ],
+  "settings": {
+    "import/extensions": [
+      ".ts"
+    ],
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".ts"
+        ]
+      }
+    }
+  },
   "rules": {
+    "import/extensions": [
+      "error", "always",
+      {
+        "ts": "never"
+      }
+    ]
   }
 }

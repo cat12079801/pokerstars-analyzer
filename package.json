@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint {src,test}/**/*.ts"
   },
   "dependencies": {},
   "devDependencies": {
