@@ -8,10 +8,10 @@ describe('PokerStarsAnalyzerのテスト', () => {
   let psa: PokerStarsAnalyzer;
 
   before(() => {
-    psa = new PokerStarsAnalyzer('path/to/file.log');
+    psa = new PokerStarsAnalyzer('./_files/sample1.txt');
   });
 
   it('logFilePathを取り出せる', () => {
-    expect(psa.logFilePath).to.equal('path/to/file.log');
+    expect(psa.logFilePath).to.equal('./_files/sample1.txt');
   });
 });

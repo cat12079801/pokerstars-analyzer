@@ -1,0 +1,48 @@
+PokerStars Hand #100000000000: Tournament #1000000000, $1.29+$0.21 USD
+Hold'em No Limit - Level I (10/20) - 2020/03/23 0:53:09 JST [2020/03/22 11:53:09 ET]
+Table '1000000000 1' 9-max Seat #1 is the button
+Seat 1: Player1 (1500 in chips)
+Seat 2: Player2 (1500 in chips)
+Seat 3: Player3 (1500 in chips)
+Seat 4: Player4 (1500 in chips)
+Seat 5: Player5 (1500 in chips)
+Seat 6: Player6 (1500 in chips)
+Seat 7: Player7 (1500 in chips)
+Seat 8: Player8 (1500 in chips)
+Seat 9: Player9 (1500 in chips)
+Player1: posts the ante 3
+Player2: posts the ante 3
+Player3: posts the ante 3
+Player4: posts the ante 3
+Player5: posts the ante 3
+Player6: posts the ante 3
+Player7: posts the ante 3
+Player8: posts the ante 3
+Player9: posts the ante 3
+Player2: posts small blind 10
+Player3: posts big blind 20
+*** HOLE CARDS ***
+Dealt to Player1 [6s 8h]
+Player4: folds
+Player5: folds
+Player6: folds
+Player7: folds
+Player8: raises 40 to 60
+Player9: folds
+Player1: folds
+Player2: folds
+Player3: folds
+Uncalled bet (40) returned to Player8
+Player8 collected 77 from pot
+Player8: doesn't show hand
+*** SUMMARY ***
+Total pot 77 | Rake 0
+Seat 1: Player1 (button) folded before Flop (didn't bet)
+Seat 2: Player2 (small blind) folded before Flop
+Seat 3: Player3 (big blind) folded before Flop
+Seat 4: Player4 folded before Flop (didn't bet)
+Seat 5: Player5 folded before Flop (didn't bet)
+Seat 6: Player6 folded before Flop (didn't bet)
+Seat 7: Player7 folded before Flop (didn't bet)
+Seat 8: Player8 collected (77)
+Seat 9: Player9 folded before Flop (didn't bet)
