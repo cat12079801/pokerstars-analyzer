@@ -4,8 +4,4 @@ export default class PokerStarsAnalyzer {
   constructor(logFilePath: string) {
     this.logFilePath = logFilePath;
   }
-
-  get getLogFilePath(): string {
-    return this.logFilePath;
-  }
 }
