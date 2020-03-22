@@ -37,6 +37,7 @@
       {
         "ts": "never"
       }
-    ]
+    ],
+    "arrow-body-style": ["error", "always"]
   }
 }
