@@ -2,53 +2,10 @@
 
 import { expect } from 'chai';
 
-import PokerStarsAnalyzer from '../src/index';
-
-type Card =
-  'As' | 'Ah' | 'Ad' | 'Ac' |
-  '2s' | '2h' | '2d' | '2c' |
-  '3s' | '3h' | '3d' | '3c' |
-  '4s' | '4h' | '4d' | '4c' |
-  '5s' | '5h' | '5d' | '5c' |
-  '6s' | '6h' | '6d' | '6c' |
-  '7s' | '7h' | '7d' | '7c' |
-  '8s' | '8h' | '8d' | '8c' |
-  '9s' | '9h' | '9d' | '9c' |
-  'Ts' | 'Th' | 'Td' | 'Tc' |
-  'Js' | 'Jh' | 'Jd' | 'Jc' |
-  'Qs' | 'Qh' | 'Qd' | 'Qc' |
-  'Ks' | 'Kh' | 'Kd' | 'Kc';
-
-type Action = 'anti' | 'smallBlind' | 'bigBlind' | 'dealHoleCards' | 'dealFlop' | 'dealTurn' | 'dealRiver' | 'bet' | 'call' | 'raise' | 'fold';
-
-type PSAJson = {
-  tournamentNo: number,
-  tableName: string,
-  players: string[],
-  myPlayerName: string,
-  myPlayerSeatNo: number,
-  buyInAmount: number,
-  buyInUnit: 'PlayMoney'|'USD',
-  hands: {
-    handNo: number,
-    blindLevel: number,
-    smallBlind: number,
-    bigBlind: number,
-    anti: number,
-    buttonSeatNo: number,
-    holeCard: Card[],
-      actions: {
-        action: Action,
-        seatNo: number | null,
-        amount: number | null,
-      }[]
-  }[],
-  summary: {
-    pot: number,
-    rake: number,
-    stackBySeatNo: number[],
-  },
-}
+import {
+  PokerStarsAnalyzer,
+  PSAJson, // eslint-disable-line no-unused-vars
+} from '../src/index';
 
 describe('PokerStarsAnalyzerのテスト', () => {
   let psa: PokerStarsAnalyzer;

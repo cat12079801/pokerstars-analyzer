@@ -1,5 +1,4 @@
-// TODO: 型定義ファイルに出す
-type Card =
+export type Card =
   'As' | 'Ah' | 'Ad' | 'Ac' |
   '2s' | '2h' | '2d' | '2c' |
   '3s' | '3h' | '3d' | '3c' |
@@ -14,9 +13,9 @@ type Card =
   'Qs' | 'Qh' | 'Qd' | 'Qc' |
   'Ks' | 'Kh' | 'Kd' | 'Kc';
 
-type Action = 'anti' | 'smallBlind' | 'bigBlind' | 'dealHoleCards' | 'dealFlop' | 'dealTurn' | 'dealRiver' | 'bet' | 'call' | 'raise' | 'fold';
+export type Action = 'anti' | 'smallBlind' | 'bigBlind' | 'dealHoleCards' | 'dealFlop' | 'dealTurn' | 'dealRiver' | 'bet' | 'call' | 'raise' | 'fold';
 
-type PSAJson = {
+export type PSAJson = {
   tournamentNo: number,
   tableName: string,
   players: string[],
@@ -45,7 +44,7 @@ type PSAJson = {
   },
 }
 
-export default class PokerStarsAnalyzer {
+export class PokerStarsAnalyzer {
   readonly logFilePath: string;
 
   readonly json: PSAJson;
