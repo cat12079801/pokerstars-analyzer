@@ -11,13 +11,14 @@ describe('PokerStarsAnalyzerのテスト', () => {
   let psa: PokerStarsAnalyzer;
   let json: PSAJson;
 
-  before(() => {
-    psa = new PokerStarsAnalyzer('./_files/sample1.txt');
+  before(async () => {
+    psa = new PokerStarsAnalyzer('test/_files/sample1.txt');
+    await psa.build();
     json = psa.json;
   });
 
   it('logFilePathを取り出せる', () => {
-    expect(psa.logFilePath).to.equal('./_files/sample1.txt');
+    expect(psa.logFilePath).to.equal('test/_files/sample1.txt');
   });
 
   it.skip('トーナメント番号が取得できる', () => {

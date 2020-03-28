@@ -1,3 +1,5 @@
+import { promises as fs } from 'fs';
+
 export type Card =
   'As' | 'Ah' | 'Ad' | 'Ac' |
   '2s' | '2h' | '2d' | '2c' |
@@ -47,14 +49,28 @@ export type PSAJson = {
 export class PokerStarsAnalyzer {
   readonly logFilePath: string;
 
-  readonly json: PSAJson;
+  // TODO: getterを作る
+  json: PSAJson;
 
   constructor(logFilePath: string) {
     this.logFilePath = logFilePath;
-    this.json = this.parseToJson();
+    this.json = this.emptyJson();
   }
 
-  parseToJson = (): PSAJson => {
+  public build = async () => {
+    this.json = await this.parseToJson();
+  }
+
+  private parseToJson = async (): Promise<PSAJson> => {
+    try {
+      const content = await fs.readFile(this.logFilePath, 'utf-8');
+      // TODO: implement
+    } catch (error) {
+      // TODO: このライブラリが返すエラーは独自のErrorクラスを実装する
+      if (error instanceof Error) {
+        throw error;
+      }
+    }
     return {
       tournamentNo: 1,
       tableName: 'table name',
@@ -91,6 +107,38 @@ export class PokerStarsAnalyzer {
       ],
       summary: {
         pot: 100,
+        rake: 0,
+        stackBySeatNo: [
+        ],
+      },
+    };
+  }
+
+  private emptyJson = (): PSAJson => {
+    return {
+      tournamentNo: 0,
+      tableName: '',
+      players: [
+      ],
+      myPlayerName: '',
+      myPlayerSeatNo: 0,
+      buyInAmount: 0,
+      buyInUnit: 'USD',
+      hands: [
+        {
+          handNo: 0,
+          blindLevel: 0,
+          smallBlind: 0,
+          bigBlind: 0,
+          anti: 0,
+          buttonSeatNo: 1,
+          holeCard: ['As', 'Ah'],
+          actions: [
+          ],
+        },
+      ],
+      summary: {
+        pot: 0,
         rake: 0,
         stackBySeatNo: [
         ],
