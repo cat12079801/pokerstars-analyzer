@@ -1,4 +1,5 @@
-import { promises as fs } from 'fs';
+import * as fs from 'fs';
+import * as readline from 'readline';
 
 export type Card =
   'As' | 'Ah' | 'Ad' | 'Ac' |
@@ -63,8 +64,12 @@ export class PokerStarsAnalyzer {
 
   private parseToJson = async (): Promise<PSAJson> => {
     try {
-      const content = await fs.readFile(this.logFilePath, 'utf-8');
-      // TODO: implement
+      readline.createInterface({
+        input: fs.createReadStream(this.logFilePath),
+      }).on('line', (line: string) => {
+        // TODO: パースするクラスを作る。
+        // 超巨大jsonでメモリが逼迫するようなことは後で考える
+      });
     } catch (error) {
       // TODO: このライブラリが返すエラーは独自のErrorクラスを実装する
       if (error instanceof Error) {
