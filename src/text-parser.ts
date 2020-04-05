@@ -71,7 +71,9 @@ export default class TextParser {
     this.readingLine = 'ChunkInfo';
   }
 
-  public read = (): void => {
+  public read = (line: string): void => {
+    const data = this.parseFunctions[this.readingLine](line);
+    this.processParsedData(data);
   }
 
   private parseFunctions: ParseFunctions = {
@@ -143,4 +145,20 @@ export default class TextParser {
       return {};
     },
   };
+
+  // TODO: 引数の型をGenerics使うか何かする
+  private processParsedData = (parsed: any): void => {
+    // TODO: if文を延々と連ねて書くのはダメ
+    if (this.readingLine === 'ChunkInfo') {
+      this.json.tournamentNo = parsed.tournamentNo;
+      this.json.buyInAmount = parsed.buyInAmount;
+      this.json.buyInUnit = parsed.buyInUnit;
+      // TODO: handオブジェクトを作成して handNo: number, を入れる
+    }
+
+    if (parsed.next) {
+      // TODO: this.nextLineKind(); を用意する
+      // この関数にnextを渡してその中で次に進むか考えても良いかも
+    }
+  }
 }
