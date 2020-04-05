@@ -34,17 +34,17 @@ export type PSAJson = {
     anti: number,
     buttonSeatNo: number,
     holeCard: Card[],
-      actions: {
-        action: Action,
-        seatNo: number | null,
-        amount: number | null,
-      }[]
+    actions: {
+      action: Action,
+      seatNo: number | null,
+      amount: number | null,
+    }[],
+    summary: {
+      pot: number,
+      rake: number,
+      stackBySeatNo: number[],
+    },
   }[],
-  summary: {
-    pot: number,
-    rake: number,
-    stackBySeatNo: number[],
-  },
 }
 
 export class PokerStarsAnalyzer {
@@ -55,7 +55,7 @@ export class PokerStarsAnalyzer {
 
   constructor(logFilePath: string) {
     this.logFilePath = logFilePath;
-    this.json = this.emptyJson();
+    this.json = PokerStarsAnalyzer.emptyJson();
   }
 
   public build = async () => {
@@ -108,18 +108,19 @@ export class PokerStarsAnalyzer {
             { action: 'bigBlind', seatNo: 3, amount: 20 },
             { action: 'dealHoleCards', seatNo: null, amount: null },
           ],
+          summary: {
+            pot: 100,
+            rake: 0,
+            stackBySeatNo: [
+            ],
+          },
         },
       ],
-      summary: {
-        pot: 100,
-        rake: 0,
-        stackBySeatNo: [
-        ],
-      },
     };
   }
 
-  private emptyJson = (): PSAJson => {
+  // TODO: hoge-utils.tsみたいなファイルに移動する
+  public static emptyJson = (): PSAJson => {
     return {
       tournamentNo: 0,
       tableName: '',
@@ -140,14 +141,14 @@ export class PokerStarsAnalyzer {
           holeCard: ['As', 'Ah'],
           actions: [
           ],
+          summary: {
+            pot: 0,
+            rake: 0,
+            stackBySeatNo: [
+            ],
+          },
         },
       ],
-      summary: {
-        pot: 0,
-        rake: 0,
-        stackBySeatNo: [
-        ],
-      },
     };
   }
 }
