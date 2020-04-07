@@ -1,30 +1,11 @@
-import {
-  PSAJson, // eslint-disable-line no-unused-vars
-  LineKind, // eslint-disable-line no-unused-vars
-  ParseFunctions, // eslint-disable-line no-unused-vars
-  ParsedChunkInfo, // eslint-disable-line no-unused-vars
-  ParsedTournamentInfo, // eslint-disable-line no-unused-vars
-  ParsedTableInfo, // eslint-disable-line no-unused-vars
-  ParsedPlayersInfo, // eslint-disable-line no-unused-vars
-  ParsedPostParticipationFee, // eslint-disable-line no-unused-vars
-  ParsedPartisionPreFlop, // eslint-disable-line no-unused-vars
-  ParsedPhasePreFlop, // eslint-disable-line no-unused-vars
-  ParsedPartisionFlop, // eslint-disable-line no-unused-vars
-  ParsedPhaseFlop, // eslint-disable-line no-unused-vars
-  ParsedPartisionTurn, // eslint-disable-line no-unused-vars
-  ParsedPhaseTurn, // eslint-disable-line no-unused-vars
-  ParsedPartisionRiver, // eslint-disable-line no-unused-vars
-  ParsedPhaseRiver, // eslint-disable-line no-unused-vars
-  ParsedPartisionSummary, // eslint-disable-line no-unused-vars
-  ParsedSummary, // eslint-disable-line no-unused-vars
-  ParsedTypes, // eslint-disable-line no-unused-vars
-} from './type';
+// eslint-disable-next-line no-unused-vars
+import * as type from './type';
 import { emptyPSAJson } from './type-utils';
 
 export default class TextParser {
-  private json: PSAJson;
+  private json: type.PSAJson;
 
-  private readingLine: LineKind;
+  private readingLine: type.LineKind;
 
   constructor() {
     this.json = emptyPSAJson();
@@ -36,9 +17,9 @@ export default class TextParser {
     this.processParsedData(data);
   }
 
-  private parseFunctions: ParseFunctions = {
+  private parseFunctions: type.ParseFunctions = {
     // eslint-disable-next-line no-unused-vars
-    ChunkInfo: (line: string): ParsedChunkInfo => {
+    ChunkInfo: (line: string): type.ParsedChunkInfo => {
       // TODO: lineを正規表現でパースする
       return {
         handNo: 100,
@@ -49,92 +30,92 @@ export default class TextParser {
       };
     },
     // eslint-disable-next-line no-unused-vars
-    TournamentInfo: (line: string): ParsedTournamentInfo => {
+    TournamentInfo: (line: string): type.ParsedTournamentInfo => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    TableInfo: (line: string): ParsedTableInfo => {
+    TableInfo: (line: string): type.ParsedTableInfo => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PlayersInfo: (line: string): ParsedPlayersInfo => {
+    PlayersInfo: (line: string): type.ParsedPlayersInfo => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PostParticipationFee: (line: string): ParsedPostParticipationFee => {
+    PostParticipationFee: (line: string): type.ParsedPostParticipationFee => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PartisionPreFlop: (line: string): ParsedPartisionPreFlop => {
+    PartisionPreFlop: (line: string): type.ParsedPartisionPreFlop => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PhasePreFlop: (line: string): ParsedPhasePreFlop => {
+    PhasePreFlop: (line: string): type.ParsedPhasePreFlop => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PartisionFlop: (line: string): ParsedPartisionFlop => {
+    PartisionFlop: (line: string): type.ParsedPartisionFlop => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PhaseFlop: (line: string): ParsedPhaseFlop => {
+    PhaseFlop: (line: string): type.ParsedPhaseFlop => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PartisionTurn: (line: string): ParsedPartisionTurn => {
+    PartisionTurn: (line: string): type.ParsedPartisionTurn => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PhaseTurn: (line: string): ParsedPhaseTurn => {
+    PhaseTurn: (line: string): type.ParsedPhaseTurn => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PartisionRiver: (line: string): ParsedPartisionRiver => {
+    PartisionRiver: (line: string): type.ParsedPartisionRiver => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PhaseRiver: (line: string): ParsedPhaseRiver => {
+    PhaseRiver: (line: string): type.ParsedPhaseRiver => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PartisionSummary: (line: string): ParsedPartisionSummary => {
+    PartisionSummary: (line: string): type.ParsedPartisionSummary => {
       return {
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
-    Summary: (line: string): ParsedSummary => {
+    Summary: (line: string): type.ParsedSummary => {
       return {
         next: true,
       };
     },
   };
 
-  private processParsedData = (parsed: ParsedTypes): void => {
+  private processParsedData = (parsed: type.ParsedTypes): void => {
     // TODO: if文を延々と連ねて書くのはダメ
     if (this.isParsedChunkInfo(parsed)) {
       this.json.tournamentNo = parsed.tournamentNo;
@@ -151,7 +132,7 @@ export default class TextParser {
 
   // TODO: type guardは別ファイルに分けたい
   // type guardの条件式は本当にこれで十分？
-  public isParsedChunkInfo = (arg: any): arg is ParsedChunkInfo => {
+  public isParsedChunkInfo = (arg: any): arg is type.ParsedChunkInfo => {
     return arg.handNo !== undefined
       && arg.tournamentNo !== undefined
       && arg.buyInAmount !== undefined
