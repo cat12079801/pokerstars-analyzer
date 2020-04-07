@@ -31,7 +31,7 @@ export const emptyPSAJson = (): type.PSAJson => {
     myPlayerSeatNo: 0,
     buyInAmount: 0,
     buyInUnit: 'USD',
-    hands: [emptyHand()],
+    hands: [],
   };
 };
 

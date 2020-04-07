@@ -121,7 +121,8 @@ export default class TextParser {
       this.json.tournamentNo = parsed.tournamentNo;
       this.json.buyInAmount = parsed.buyInAmount;
       this.json.buyInUnit = parsed.buyInUnit;
-      // TODO: handオブジェクトを作成して handNo: number, を入れる
+      this.json.hands.push(typeUtil.emptyHand());
+      this.json.hands[this.json.hands.length - 1].handNo = parsed.handNo;
     }
 
     if (parsed.next) {
