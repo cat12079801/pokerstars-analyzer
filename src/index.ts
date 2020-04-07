@@ -3,6 +3,7 @@ import * as readline from 'readline';
 
 // eslint-disable-next-line no-unused-vars
 import { PSAJson } from './type';
+import { emptyPSAJson } from './type-utils';
 
 export default class PokerStarsAnalyzer {
   readonly logFilePath: string;
@@ -12,7 +13,7 @@ export default class PokerStarsAnalyzer {
 
   constructor(logFilePath: string) {
     this.logFilePath = logFilePath;
-    this.json = PokerStarsAnalyzer.emptyJson();
+    this.json = emptyPSAJson();
   }
 
   public build = async () => {
@@ -67,39 +68,6 @@ export default class PokerStarsAnalyzer {
           ],
           summary: {
             pot: 100,
-            rake: 0,
-            stackBySeatNo: [
-            ],
-          },
-        },
-      ],
-    };
-  }
-
-  // TODO: hoge-utils.tsみたいなファイルに移動する
-  public static emptyJson = (): PSAJson => {
-    return {
-      tournamentNo: 0,
-      tableName: '',
-      players: [
-      ],
-      myPlayerName: '',
-      myPlayerSeatNo: 0,
-      buyInAmount: 0,
-      buyInUnit: 'USD',
-      hands: [
-        {
-          handNo: 0,
-          blindLevel: 0,
-          smallBlind: 0,
-          bigBlind: 0,
-          anti: 0,
-          buttonSeatNo: 1,
-          holeCard: ['As', 'Ah'],
-          actions: [
-          ],
-          summary: {
-            pot: 0,
             rake: 0,
             stackBySeatNo: [
             ],

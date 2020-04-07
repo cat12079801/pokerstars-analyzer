@@ -1,4 +1,3 @@
-import PokerStarsAnalyzer from './index';
 import {
   PSAJson, // eslint-disable-line no-unused-vars
   LineKind, // eslint-disable-line no-unused-vars
@@ -20,6 +19,7 @@ import {
   ParsedSummary, // eslint-disable-line no-unused-vars
   ParsedTypes, // eslint-disable-line no-unused-vars
 } from './type';
+import { emptyPSAJson } from './type-utils';
 
 export default class TextParser {
   private json: PSAJson;
@@ -27,7 +27,7 @@ export default class TextParser {
   private readingLine: LineKind;
 
   constructor() {
-    this.json = PokerStarsAnalyzer.emptyJson();
+    this.json = emptyPSAJson();
     this.readingLine = 'ChunkInfo';
   }
 
