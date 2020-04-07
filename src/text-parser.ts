@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import * as type from './type';
-import { emptyPSAJson } from './type-utils';
+import * as typeUtil from './type-utils';
 
 export default class TextParser {
   private json: type.PSAJson;
@@ -8,7 +8,7 @@ export default class TextParser {
   private readingLine: type.LineKind;
 
   constructor() {
-    this.json = emptyPSAJson();
+    this.json = typeUtil.emptyPSAJson();
     this.readingLine = 'ChunkInfo';
   }
 
@@ -117,7 +117,7 @@ export default class TextParser {
 
   private processParsedData = (parsed: type.ParsedTypes): void => {
     // TODO: if文を延々と連ねて書くのはダメ
-    if (this.isParsedChunkInfo(parsed)) {
+    if (typeUtil.isParsedChunkInfo(parsed)) {
       this.json.tournamentNo = parsed.tournamentNo;
       this.json.buyInAmount = parsed.buyInAmount;
       this.json.buyInUnit = parsed.buyInUnit;
@@ -128,15 +128,5 @@ export default class TextParser {
       // TODO: this.nextLineKind(); を用意する
       // この関数にnextを渡してその中で次に進むか考えても良いかも
     }
-  }
-
-  // TODO: type guardは別ファイルに分けたい
-  // type guardの条件式は本当にこれで十分？
-  public isParsedChunkInfo = (arg: any): arg is type.ParsedChunkInfo => {
-    return arg.handNo !== undefined
-      && arg.tournamentNo !== undefined
-      && arg.buyInAmount !== undefined
-      && arg.buyInUnit !== undefined
-      && arg.next !== undefined;
   }
 }

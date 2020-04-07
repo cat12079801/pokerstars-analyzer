@@ -32,3 +32,11 @@ export const emptyPSAJson = (): type.PSAJson => {
     ],
   };
 };
+
+export const isParsedChunkInfo = (arg: any): arg is type.ParsedChunkInfo => {
+  return arg.handNo !== undefined
+    && arg.tournamentNo !== undefined
+    && arg.buyInAmount !== undefined
+    && arg.buyInUnit !== undefined
+    && arg.next !== undefined;
+};
