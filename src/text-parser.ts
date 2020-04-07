@@ -1,82 +1,25 @@
+import PokerStarsAnalyzer from './index';
 import {
   PSAJson, // eslint-disable-line no-unused-vars
-  PokerStarsAnalyzer,
-} from './index';
-
-type LineKind =
-  'ChunkInfo' |
-  'TournamentInfo' |
-  'TableInfo' |
-  'PlayersInfo' |
-  'PostParticipationFee' |
-  'PartisionPreFlop' |
-  'PhasePreFlop' |
-  'PartisionFlop' |
-  'PhaseFlop' |
-  'PartisionTurn' |
-  'PhaseTurn' |
-  'PartisionRiver' |
-  'PhaseRiver' |
-  'PartisionSummary' |
-  'Summary';
-
-type ParseFunctions = {
-  // すべてのLineKindに対してパースする関数を返す
-  ChunkInfo: (line: string) => ParsedChunkInfo,
-  TournamentInfo: (line: string) => ParsedTournamentInfo,
-  TableInfo: (line: string) => ParsedTableInfo,
-  PlayersInfo: (line: string) => ParsedPlayersInfo,
-  PostParticipationFee: (line: string) => ParsedPostParticipationFee,
-  PartisionPreFlop: (line: string) => ParsedPartisionPreFlop,
-  PhasePreFlop: (line: string) => ParsedPhasePreFlop,
-  PartisionFlop: (line: string) => ParsedPartisionFlop,
-  PhaseFlop: (line: string) => ParsedPhaseFlop,
-  PartisionTurn: (line: string) => ParsedPartisionTurn,
-  PhaseTurn: (line: string) => ParsedPhaseTurn,
-  PartisionRiver: (line: string) => ParsedPartisionRiver,
-  PhaseRiver: (line: string) => ParsedPhaseRiver,
-  PartisionSummary: (line: string) => ParsedPartisionSummary,
-  Summary: (line: string) => ParsedSummary,
-};
-
-type ParsedBase = {next: boolean};
-type ParsedChunkInfo = ParsedBase & {
-  handNo: number,
-  tournamentNo: number,
-  buyInAmount: number,
-  buyInUnit: 'PlayMoney'|'USD',
-  next: true,
-};
-type ParsedTournamentInfo = ParsedBase & {};
-type ParsedTableInfo = ParsedBase & {};
-type ParsedPlayersInfo = ParsedBase & {};
-type ParsedPostParticipationFee = ParsedBase & {};
-type ParsedPartisionPreFlop = ParsedBase & {};
-type ParsedPhasePreFlop = ParsedBase & {};
-type ParsedPartisionFlop = ParsedBase & {};
-type ParsedPhaseFlop = ParsedBase & {};
-type ParsedPartisionTurn = ParsedBase & {};
-type ParsedPhaseTurn = ParsedBase & {};
-type ParsedPartisionRiver = ParsedBase & {};
-type ParsedPhaseRiver = ParsedBase & {};
-type ParsedPartisionSummary = ParsedBase & {};
-type ParsedSummary = ParsedBase & {};
-type ParsedTypes =
-  ParsedChunkInfo |
-  ParsedTournamentInfo |
-  ParsedTableInfo |
-  ParsedPlayersInfo |
-  ParsedPostParticipationFee |
-  ParsedPartisionPreFlop |
-  ParsedPhasePreFlop |
-  ParsedPartisionFlop |
-  ParsedPhaseFlop |
-  ParsedPartisionTurn |
-  ParsedPhaseTurn |
-  ParsedPartisionRiver |
-  ParsedPhaseRiver |
-  ParsedPartisionSummary |
-  ParsedSummary;
+  LineKind, // eslint-disable-line no-unused-vars
+  ParseFunctions, // eslint-disable-line no-unused-vars
+  ParsedChunkInfo, // eslint-disable-line no-unused-vars
+  ParsedTournamentInfo, // eslint-disable-line no-unused-vars
+  ParsedTableInfo, // eslint-disable-line no-unused-vars
+  ParsedPlayersInfo, // eslint-disable-line no-unused-vars
+  ParsedPostParticipationFee, // eslint-disable-line no-unused-vars
+  ParsedPartisionPreFlop, // eslint-disable-line no-unused-vars
+  ParsedPhasePreFlop, // eslint-disable-line no-unused-vars
+  ParsedPartisionFlop, // eslint-disable-line no-unused-vars
+  ParsedPhaseFlop, // eslint-disable-line no-unused-vars
+  ParsedPartisionTurn, // eslint-disable-line no-unused-vars
+  ParsedPhaseTurn, // eslint-disable-line no-unused-vars
+  ParsedPartisionRiver, // eslint-disable-line no-unused-vars
+  ParsedPhaseRiver, // eslint-disable-line no-unused-vars
+  ParsedPartisionSummary, // eslint-disable-line no-unused-vars
+  ParsedSummary, // eslint-disable-line no-unused-vars
+  ParsedTypes, // eslint-disable-line no-unused-vars
+} from './type';
 
 export default class TextParser {
   private json: PSAJson;

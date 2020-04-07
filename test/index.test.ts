@@ -2,10 +2,9 @@
 
 import { expect } from 'chai';
 
-import {
-  PokerStarsAnalyzer,
-  PSAJson, // eslint-disable-line no-unused-vars
-} from '../src/index';
+import PokerStarsAnalyzer from '../src/index';
+// eslint-disable-next-line no-unused-vars
+import { PSAJson } from '../src/type';
 
 describe('PokerStarsAnalyzerのテスト', () => {
   let psa: PokerStarsAnalyzer;
