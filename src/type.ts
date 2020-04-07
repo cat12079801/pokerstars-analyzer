@@ -23,26 +23,27 @@ export type PSAJson = {
   myPlayerSeatNo: number,
   buyInAmount: number,
   buyInUnit: 'PlayMoney'|'USD',
-  hands: {
-    handNo: number,
-    blindLevel: number,
-    smallBlind: number,
-    bigBlind: number,
-    anti: number,
-    buttonSeatNo: number,
-    holeCard: Card[],
-    actions: {
-      action: Action,
-      seatNo: number | null,
-      amount: number | null,
-    }[],
-    summary: {
-      pot: number,
-      rake: number,
-      stackBySeatNo: number[],
-    },
+  hands: Hand[],
+};
+export type Hand = {
+  handNo: number,
+  blindLevel: number,
+  smallBlind: number,
+  bigBlind: number,
+  anti: number,
+  buttonSeatNo: number,
+  holeCard: Card[],
+  actions: {
+    action: Action,
+    seatNo: number | null,
+    amount: number | null,
   }[],
-}
+  summary: {
+    pot: number,
+    rake: number,
+    stackBySeatNo: number[],
+  },
+};
 
 export type LineKind =
   'ChunkInfo' |
