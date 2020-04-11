@@ -51,15 +51,11 @@ export type LineKind =
   'TableInfo' |
   'PlayersInfo' |
   'PostParticipationFee' |
-  'PartisionPreFlop' |
+  'PhasePartision' |
   'PhasePreFlop' |
-  'PartisionFlop' |
   'PhaseFlop' |
-  'PartisionTurn' |
   'PhaseTurn' |
-  'PartisionRiver' |
   'PhaseRiver' |
-  'PartisionSummary' |
   'Summary';
 
 export type ParseFunctions = {
@@ -69,15 +65,11 @@ export type ParseFunctions = {
   TableInfo: (line: string) => ParsedTableInfo,
   PlayersInfo: (line: string) => ParsedPlayersInfo,
   PostParticipationFee: (line: string) => ParsedPostParticipationFee,
-  PartisionPreFlop: (line: string) => ParsedPartisionPreFlop,
+  PhasePartision: (line: string) => ParsedPhasePartision,
   PhasePreFlop: (line: string) => ParsedPhasePreFlop,
-  PartisionFlop: (line: string) => ParsedPartisionFlop,
   PhaseFlop: (line: string) => ParsedPhaseFlop,
-  PartisionTurn: (line: string) => ParsedPartisionTurn,
   PhaseTurn: (line: string) => ParsedPhaseTurn,
-  PartisionRiver: (line: string) => ParsedPartisionRiver,
   PhaseRiver: (line: string) => ParsedPhaseRiver,
-  PartisionSummary: (line: string) => ParsedPartisionSummary,
   Summary: (line: string) => ParsedSummary,
 };
 
@@ -93,15 +85,11 @@ export type ParsedTournamentInfo = ParsedBase & {};
 export type ParsedTableInfo = ParsedBase & {};
 export type ParsedPlayersInfo = ParsedBase & {};
 export type ParsedPostParticipationFee = ParsedBase & {};
-export type ParsedPartisionPreFlop = ParsedBase & {};
+export type ParsedPhasePartision = ParsedBase & {};
 export type ParsedPhasePreFlop = ParsedBase & {};
-export type ParsedPartisionFlop = ParsedBase & {};
 export type ParsedPhaseFlop = ParsedBase & {};
-export type ParsedPartisionTurn = ParsedBase & {};
 export type ParsedPhaseTurn = ParsedBase & {};
-export type ParsedPartisionRiver = ParsedBase & {};
 export type ParsedPhaseRiver = ParsedBase & {};
-export type ParsedPartisionSummary = ParsedBase & {};
 export type ParsedSummary = ParsedBase & {};
 export type ParsedTypes =
   ParsedChunkInfo |
@@ -109,13 +97,9 @@ export type ParsedTypes =
   ParsedTableInfo |
   ParsedPlayersInfo |
   ParsedPostParticipationFee |
-  ParsedPartisionPreFlop |
+  ParsedPhasePartision |
   ParsedPhasePreFlop |
-  ParsedPartisionFlop |
   ParsedPhaseFlop |
-  ParsedPartisionTurn |
   ParsedPhaseTurn |
-  ParsedPartisionRiver |
   ParsedPhaseRiver |
-  ParsedPartisionSummary |
   ParsedSummary;

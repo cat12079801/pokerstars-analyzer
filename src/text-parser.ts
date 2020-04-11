@@ -54,7 +54,7 @@ export default class TextParser {
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PartisionPreFlop: (line: string): type.ParsedPartisionPreFlop => {
+    PhasePartision: (line: string): type.ParsedPhasePartision => {
       return {
         next: true,
       };
@@ -66,19 +66,7 @@ export default class TextParser {
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PartisionFlop: (line: string): type.ParsedPartisionFlop => {
-      return {
-        next: true,
-      };
-    },
-    // eslint-disable-next-line no-unused-vars
     PhaseFlop: (line: string): type.ParsedPhaseFlop => {
-      return {
-        next: true,
-      };
-    },
-    // eslint-disable-next-line no-unused-vars
-    PartisionTurn: (line: string): type.ParsedPartisionTurn => {
       return {
         next: true,
       };
@@ -90,19 +78,7 @@ export default class TextParser {
       };
     },
     // eslint-disable-next-line no-unused-vars
-    PartisionRiver: (line: string): type.ParsedPartisionRiver => {
-      return {
-        next: true,
-      };
-    },
-    // eslint-disable-next-line no-unused-vars
     PhaseRiver: (line: string): type.ParsedPhaseRiver => {
-      return {
-        next: true,
-      };
-    },
-    // eslint-disable-next-line no-unused-vars
-    PartisionSummary: (line: string): type.ParsedPartisionSummary => {
       return {
         next: true,
       };
