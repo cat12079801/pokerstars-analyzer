@@ -32,60 +32,70 @@ export default class TextParser {
     // eslint-disable-next-line no-unused-vars
     TournamentInfo: (line: string): type.ParsedTournamentInfo => {
       return {
+        dummyPropertyParsedTournamentInfo: 'dummy',
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
     TableInfo: (line: string): type.ParsedTableInfo => {
       return {
+        dummyPropertyParsedTableInfo: 'dummy',
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
     PlayersInfo: (line: string): type.ParsedPlayersInfo => {
       return {
+        dummyPropertyParsedPlayersInfo: 'dummy',
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
     PostParticipationFee: (line: string): type.ParsedPostParticipationFee => {
       return {
+        dummyPropertyParsedPostParticipationFee: 'dummy',
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
     PhasePartision: (line: string): type.ParsedPhasePartision => {
       return {
+        dummyPropertyParsedPhasePartision: 'dummy',
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
     PhasePreFlop: (line: string): type.ParsedPhasePreFlop => {
       return {
+        dummyPropertyParsedPhasePreFlop: 'dummy',
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
     PhaseFlop: (line: string): type.ParsedPhaseFlop => {
       return {
+        dummyPropertyParsedPhaseFlop: 'dummy',
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
     PhaseTurn: (line: string): type.ParsedPhaseTurn => {
       return {
+        dummyPropertyParsedPhaseTurn: 'dummy',
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
     PhaseRiver: (line: string): type.ParsedPhaseRiver => {
       return {
+        dummyPropertyParsedPhaseRiver: 'dummy',
         next: true,
       };
     },
     // eslint-disable-next-line no-unused-vars
     Summary: (line: string): type.ParsedSummary => {
       return {
+        dummyPropertyParsedSummary: 'dummy',
         next: true,
       };
     },

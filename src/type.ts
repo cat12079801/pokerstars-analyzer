@@ -81,16 +81,36 @@ export type ParsedChunkInfo = ParsedBase & {
   buyInUnit: 'PlayMoney'|'USD',
   next: true,
 };
-export type ParsedTournamentInfo = ParsedBase & {};
-export type ParsedTableInfo = ParsedBase & {};
-export type ParsedPlayersInfo = ParsedBase & {};
-export type ParsedPostParticipationFee = ParsedBase & {};
-export type ParsedPhasePartision = ParsedBase & {};
-export type ParsedPhasePreFlop = ParsedBase & {};
-export type ParsedPhaseFlop = ParsedBase & {};
-export type ParsedPhaseTurn = ParsedBase & {};
-export type ParsedPhaseRiver = ParsedBase & {};
-export type ParsedSummary = ParsedBase & {};
+export type ParsedTournamentInfo = ParsedBase & {
+  dummyPropertyParsedTournamentInfo: 'dummy',
+};
+export type ParsedTableInfo = ParsedBase & {
+  dummyPropertyParsedTableInfo: 'dummy',
+};
+export type ParsedPlayersInfo = ParsedBase & {
+  dummyPropertyParsedPlayersInfo: 'dummy',
+};
+export type ParsedPostParticipationFee = ParsedBase & {
+  dummyPropertyParsedPostParticipationFee: 'dummy',
+};
+export type ParsedPhasePartision = ParsedBase & {
+  dummyPropertyParsedPhasePartision: 'dummy',
+};
+export type ParsedPhasePreFlop = ParsedBase & {
+  dummyPropertyParsedPhasePreFlop: 'dummy',
+};
+export type ParsedPhaseFlop = ParsedBase & {
+  dummyPropertyParsedPhaseFlop: 'dummy',
+};
+export type ParsedPhaseTurn = ParsedBase & {
+  dummyPropertyParsedPhaseTurn: 'dummy',
+};
+export type ParsedPhaseRiver = ParsedBase & {
+  dummyPropertyParsedPhaseRiver: 'dummy',
+};
+export type ParsedSummary = ParsedBase & {
+  dummyPropertyParsedSummary: 'dummy',
+};
 export type ParsedTypes =
   ParsedChunkInfo |
   ParsedTournamentInfo |
