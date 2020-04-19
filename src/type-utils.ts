@@ -92,3 +92,11 @@ export const isParsedSummary = (arg: any): arg is type.ParsedSummary => {
   return arg.dummyPropertyParsedSummary !== undefined
     && arg.next !== undefined;
 };
+
+export const isAnyParsedPhase = (arg: any): arg is type.AnyParsedPhase => {
+  return isParsedPhasePreFlop(arg)
+    || isParsedPhaseFlop(arg)
+    || isParsedPhaseTurn(arg)
+    || isParsedPhaseRiver(arg)
+    || isParsedSummary(arg);
+};

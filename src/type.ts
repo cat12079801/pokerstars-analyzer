@@ -56,7 +56,8 @@ export type LineKind =
   'PhaseFlop' |
   'PhaseTurn' |
   'PhaseRiver' |
-  'Summary';
+  'Summary' |
+  'Blank';
 
 export type ParseFunctions = {
   // すべてのLineKindに対してパースする関数を返す
@@ -71,6 +72,7 @@ export type ParseFunctions = {
   PhaseTurn: (line: string) => ParsedPhaseTurn,
   PhaseRiver: (line: string) => ParsedPhaseRiver,
   Summary: (line: string) => ParsedSummary,
+  Blank: (line: string) => ParsedBlank,
 };
 
 export type ParsedBase = {next: boolean};
@@ -94,6 +96,12 @@ export type ParsedPostParticipationFee = ParsedBase & {
   dummyPropertyParsedPostParticipationFee: 'dummy',
 };
 export type ParsedPhasePartision = ParsedBase & {
+  nextLine:
+    'PhasePreFlop' |
+    'PhaseFlop' |
+    'PhaseTurn' |
+    'PhaseRiver' |
+    'Summary',
   dummyPropertyParsedPhasePartision: 'dummy',
 };
 export type ParsedPhasePreFlop = ParsedBase & {
@@ -111,6 +119,15 @@ export type ParsedPhaseRiver = ParsedBase & {
 export type ParsedSummary = ParsedBase & {
   dummyPropertyParsedSummary: 'dummy',
 };
+export type ParsedBlank = ParsedBase & {
+};
+export type AnyParsedPhase =
+  ParsedPhasePreFlop |
+  ParsedPhaseFlop |
+  ParsedPhaseTurn |
+  ParsedPhaseRiver |
+  ParsedSummary;
+
 export type ParsedTypes =
   ParsedChunkInfo |
   ParsedTournamentInfo |
@@ -122,4 +139,5 @@ export type ParsedTypes =
   ParsedPhaseFlop |
   ParsedPhaseTurn |
   ParsedPhaseRiver |
-  ParsedSummary;
+  ParsedSummary |
+  ParsedBlank;

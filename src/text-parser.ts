@@ -7,9 +7,27 @@ export default class TextParser {
 
   private readingLine: type.LineKind;
 
+  private nextLine: {
+    [key in type.LineKind]: type.LineKind;
+  };
+
   constructor() {
     this.json = typeUtil.emptyPSAJson();
     this.readingLine = 'ChunkInfo';
+    this.nextLine = {
+      ChunkInfo: 'TournamentInfo',
+      TournamentInfo: 'TableInfo',
+      TableInfo: 'PlayersInfo',
+      PlayersInfo: 'PostParticipationFee',
+      PostParticipationFee: 'PhasePartision',
+      PhasePartision: 'PhasePartision', // 使われない
+      PhasePreFlop: 'PhasePartision',
+      PhaseFlop: 'PhasePartision',
+      PhaseTurn: 'PhasePartision',
+      PhaseRiver: 'PhasePartision',
+      Summary: 'Blank',
+      Blank: 'ChunkInfo',
+    };
   }
 
   public read = (line: string): void => {
@@ -61,6 +79,7 @@ export default class TextParser {
     PhasePartision: (line: string): type.ParsedPhasePartision => {
       return {
         dummyPropertyParsedPhasePartision: 'dummy',
+        nextLine: 'PhasePreFlop',
         next: true,
       };
     },
@@ -99,6 +118,12 @@ export default class TextParser {
         next: true,
       };
     },
+    // eslint-disable-next-line no-unused-vars
+    Blank: (line: string): type.ParsedBlank => {
+      return {
+        next: true,
+      };
+    },
   };
 
   private processParsedData = (parsed: type.ParsedTypes): void => {
@@ -109,11 +134,34 @@ export default class TextParser {
       this.json.buyInUnit = parsed.buyInUnit;
       this.json.hands.push(typeUtil.emptyHand());
       this.json.hands[this.json.hands.length - 1].handNo = parsed.handNo;
+    } else if (typeUtil.isParsedTournamentInfo(parsed)) {
+      // TODO: implement
+    } else if (typeUtil.isParsedTableInfo(parsed)) {
+      // TODO: implement
+    } else if (typeUtil.isParsedPlayersInfo(parsed)) {
+      // TODO: implement
+    } else if (typeUtil.isParsedPostParticipationFee(parsed)) {
+      // TODO: implement
+    } else if (typeUtil.isParsedPhasePartision(parsed)) {
+      // TODO: implement
+    } else if (typeUtil.isParsedPhasePreFlop(parsed)) {
+      // TODO: implement
+    } else if (typeUtil.isParsedPhaseFlop(parsed)) {
+      // TODO: implement
+    } else if (typeUtil.isParsedPhaseTurn(parsed)) {
+      // TODO: implement
+    } else if (typeUtil.isParsedPhaseRiver(parsed)) {
+      // TODO: implement
+    } else if (typeUtil.isParsedSummary(parsed)) {
+      // TODO: implement
     }
 
     if (parsed.next) {
-      // TODO: this.nextLineKind(); を用意する
-      // この関数にnextを渡してその中で次に進むか考えても良いかも
+      if (typeUtil.isParsedPhasePartision(parsed)) {
+        this.readingLine = parsed.nextLine;
+      } else {
+        this.readingLine = this.nextLine[this.readingLine];
+      }
     }
   }
 }
